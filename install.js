@@ -12,8 +12,6 @@ const exitOnError = (err) => {
     process.exit(1)
 }
 
-console.log({ffprobePath})
-
 if (!ffprobePath) {
     exitOnError('ffprobe-static install failed: No binary found for architecture')
 }
@@ -61,9 +59,6 @@ const release = pkg['tag']
 
 const arch = OS.arch()
 const platform = OS.platform()
-
-console.log({arch})
-console.log({platform})
 
 const baseUrl = `https://github.com/nosferatu500/ffprobe-static/releases/download/${release}`
 const downloadUrl = platform === 'win32' ? `${baseUrl}/${platform}-${arch}.exe` : `${baseUrl}/${platform}-x64`
